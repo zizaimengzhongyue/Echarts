@@ -7,6 +7,7 @@
 <body>
 	<div id="bar" style="width: 1500px;height: 600px;"></div>
 	<div id="line" style="width: 1500px;height: 600px;"></div>
+	<div id="pie" style="width 800px;height: 600px;"></div>
 </body>
 </html>
 <script>
@@ -60,4 +61,34 @@
 		}],
 	};
 	line.setOption(line_option);
+
+	var key = ['金融','汽车','互联网','奢侈品','房地产'];
+	var data = [
+		{value: 164, name: '金融'},
+		{value: 228, name: '汽车'},
+		{value: 534, name: '互联网'},
+		{value: 342, name: '奢侈品'},
+		{value: 247, name: '房地产'},	
+	];
+	var pie = echarts.init(document.getElementById('pie'));
+	var pie_option = {
+		title: {
+			text: '广告曝光圆饼图',
+			x: 'center',
+		},
+		tooltip: {},
+		legend: {
+			orient: 'vertical',
+			x: 'left',
+			data: key,
+		},
+		series:[{
+			name: '曝光',
+			type: 'pie',
+			radius: '55%',
+			center: ['50%', '60%'],
+			data: data
+		}],
+	};
+	pie.setOption(pie_option);
 </script>
